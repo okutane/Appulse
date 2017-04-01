@@ -49,8 +49,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Placeholder Templates
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
-        // This method will be called once per supported complication, and the results will be cached
-        handler(nil)
+        let template = CLKComplicationTemplateUtilitarianLargeFlat()
+        template.textProvider = CLKSimpleTextProvider(text: "13:37")
+        
+        handler(template)
     }
     
 }
