@@ -781,6 +781,7 @@
 				8D4546691E8FF34C0036F728 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D45466B1E8FF34C0036F728 /* Build configuration list for PBXNativeTarget "Appulse WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -789,6 +790,7 @@
 				8D45466D1E8FF34C0036F728 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D45466F1E8FF34C0036F728 /* Build configuration list for PBXNativeTarget "Appulse" */ = {
 			isa = XCConfigurationList;
@@ -797,6 +799,7 @@
 				8D4546711E8FF34C0036F728 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D4546721E8FF34C0036F728 /* Build configuration list for PBXNativeTarget "AppulseTests" */ = {
 			isa = XCConfigurationList;
@@ -805,6 +808,7 @@
 				8D4546741E8FF34C0036F728 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D4546751E8FF34C0036F728 /* Build configuration list for PBXNativeTarget "AppulseUITests" */ = {
 			isa = XCConfigurationList;
@@ -813,6 +817,7 @@
 				8D4546771E8FF34C0036F728 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
