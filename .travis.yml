@@ -1,0 +1,6 @@
+language: objective-c
+xcode_project: Appulse.xcodeproj
+xcode_scheme: AppulseTests
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
