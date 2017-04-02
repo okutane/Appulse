@@ -23,6 +23,7 @@
 		8D45465F1E8FF34C0036F728 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D45465E1E8FF34C0036F728 /* NotificationController.swift */; };
 		8D4546611E8FF34C0036F728 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4546601E8FF34C0036F728 /* ComplicationController.swift */; };
 		8D4546631E8FF34C0036F728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4546621E8FF34C0036F728 /* Assets.xcassets */; };
+		8D45467C1E90A37F0036F728 /* MagicDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D45467B1E90A37F0036F728 /* MagicDateProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		8D4546601E8FF34C0036F728 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		8D4546621E8FF34C0036F728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D4546641E8FF34C0036F728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D45467B1E90A37F0036F728 /* MagicDateProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicDateProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				8D4546261E8FF34C0036F728 /* Assets.xcassets */,
 				8D4546281E8FF34C0036F728 /* LaunchScreen.storyboard */,
 				8D45462B1E8FF34C0036F728 /* Info.plist */,
+				8D45467B1E90A37F0036F728 /* MagicDateProvider.swift */,
 			);
 			path = Appulse;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 			files = (
 				8D4546221E8FF34C0036F728 /* ViewController.swift in Sources */,
 				8D4546201E8FF34C0036F728 /* AppDelegate.swift in Sources */,
+				8D45467C1E90A37F0036F728 /* MagicDateProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
