@@ -2,5 +2,7 @@ language: objective-c
 xcode_project: Appulse.xcodeproj
 xcode_scheme: AppulseTests
 
+script: xcodebuild -scheme AppulseTests -workspace Appulse.xcodeproj/project.xcworkspace -sdk watchsimulator -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.2' build test
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
