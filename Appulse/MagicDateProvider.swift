@@ -21,9 +21,18 @@ class SameDigits: MagicDateProvider {
         if (combined < 2223) {
             
         }
+        
+        return current
     }
 
     internal func prev(current: Date) -> Date {
-        <#code#>
+        let hours = Calendar.current.component(.hour, from: current)
+        let minutes = Calendar.current.component(.minute, from: current)
+        let combined = hours * 100 + minutes
+        if (combined < 2223) {
+            
+        }
+        
+        return current
     }
 }
