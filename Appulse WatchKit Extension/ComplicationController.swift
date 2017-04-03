@@ -32,7 +32,6 @@ struct RepeatingNumbers: MagicDateProvider {
         let cal = Calendar.current
         var components = cal.dateComponents(x, from: current)
 
-        let components = Calendar.current.dateComponents([.Year], fromDate: current)
         let hours = Calendar.current.component(.hour, from: current)
         let minutes = Calendar.current.component(.minute, from: current)
         let combined = hours * 100 + minutes;
@@ -66,7 +65,6 @@ struct RepeatingNumbers: MagicDateProvider {
         let cal = Calendar.current
         var components = cal.dateComponents(x, from: current)
 
-        let components = Calendar.current.dateComponents([.Year], fromDate: current)
         let hours = Calendar.current.component(.hour, from: current)
         let minutes = Calendar.current.component(.minute, from: current)
         let combined = hours * 100 + minutes;
@@ -90,7 +88,7 @@ struct RepeatingNumbers: MagicDateProvider {
 }
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
-
+    let formatter : DateFormatter = DateFormatter()
     let provider: MagicDateProvider = RepeatingNumbers()
 
     // MARK: - Timeline Configuration
@@ -114,18 +112,32 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Population
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        let date = provider.prev(current: Date())
-        handler(CLKComplicationTimelineEntry(date: date, complicationTemplate: getTemplate(for: date)))
+        let date = provider.next(current: Date())
+        handler(getEntry(for: date))
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        // Call the handler with the timeline entries prior to the given date
-        handler(nil)
+        var entries = [CLKComplicationTimelineEntry]()
+
+        var entryDate = date
+        while entries.count < limit {
+            entryDate = provider.prev(current: date)
+            entries.append(getEntry(for: entryDate))
+        }
+
+        handler(entries)
     }
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        // Call the handler with the timeline entries after to the given date
-        handler(nil)
+        var entries = [CLKComplicationTimelineEntry]()
+
+        var entryDate = date
+        while entries.count < limit {
+            entryDate = provider.next(current: date)
+            entries.append(getEntry(for: entryDate))
+        }
+
+        handler(entries)
     }
     
     // MARK: - Placeholder Templates
@@ -137,12 +149,17 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(template)
     }
 
+    func getEntry(for date: Date) -> CLKComplicationTimelineEntry {
+        return CLKComplicationTimelineEntry(date: date, complicationTemplate: getTemplate(for: date))
+    }
+
     func getTemplate(for date: Date) -> CLKComplicationTemplate {
         let template = CLKComplicationTemplateUtilitarianLargeFlat()
-        template.textProvider = CLKTimeTextProvider(date: date)
+
+        formatter.dateFormat = "HH:mm"
+
+        template.textProvider = CLKSimpleTextProvider(text: formatter.string(from: date))
 
         return template
     }
-
-    func getTimelineEntry(for date: Date) ->
 }
