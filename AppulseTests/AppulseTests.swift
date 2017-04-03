@@ -21,9 +21,24 @@ class AppulseTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testRepeatingNumbers() {
+        let provider = RepeatingNumbers()
+        
+        var components = DateComponents()
+        components.year = 2017
+        components.month = 4
+        components.day = 1
+        components.hour = 10
+        components.minute = 10
+        components.second = 10
+        
+        let earlyMorning = Calendar.current.date(from: components)!
+        
+        print(earlyMorning)
+        
+        let elevenEleven = provider.next(current: earlyMorning)
+        
+        print(elevenEleven)
     }
     
     func testPerformanceExample() {
