@@ -79,7 +79,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
         formatter.dateFormat = "HH:mm"
 
-        template.textProvider = CLKSimpleTextProvider(text: formatter.string(from: date))
+        template.textProvider = CLKSimpleTextProvider(text: "Get at " + formatter.string(from: date))
 
         return template
     }
