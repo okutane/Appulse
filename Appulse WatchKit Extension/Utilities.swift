@@ -36,6 +36,8 @@ struct RepeatingNumbers: MagicDateProvider {
         let minutes = Calendar.current.component(.minute, from: current)
         let combined = hours * 100 + minutes;
         
+        components.second = 0
+        
         if (combined > 2222) {
             components.hour = 22
             components.minute = 22
@@ -69,11 +71,7 @@ struct RepeatingNumbers: MagicDateProvider {
         let minutes = Calendar.current.component(.minute, from: current)
         let combined = hours * 100 + minutes;
         
-        if (combined < 2222) {
-            components.hour = 22
-            components.minute = 22
-            return cal.date(from: components)!
-        }
+        components.second = 0
         
         if (combined < 1111) {
             components.hour = 11
@@ -81,8 +79,15 @@ struct RepeatingNumbers: MagicDateProvider {
             return cal.date(from: components)!
         }
         
+        if (combined < 2222) {
+            components.hour = 22
+            components.minute = 22
+            return cal.date(from: components)!
+        }
+        
         components.hour = 0
         components.minute = 0
+        components.day = components.day! + 1
         return cal.date(from: components)!
     }
 }
