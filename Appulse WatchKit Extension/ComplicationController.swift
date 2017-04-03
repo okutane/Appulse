@@ -91,7 +91,7 @@ struct RepeatingNumbers: MagicDateProvider {
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
 
-    let provider: RepeatingNumbers = RepeatingNumbers()
+    let provider: MagicDateProvider = RepeatingNumbers()
 
     // MARK: - Timeline Configuration
     
@@ -100,11 +100,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(nil)
+        handler(Date.distantPast)
     }
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(nil)
+        handler(Date.distantFuture)
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
@@ -114,8 +114,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Population
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        // Call the handler with the current timeline entry
-        handler(nil)
+        let date = provider.prev(current: Date())
+        handler(CLKComplicationTimelineEntry(date: date, complicationTemplate: getTemplate(for: date)))
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
@@ -137,7 +137,12 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(template)
     }
 
-    func timelineEntryDateForMagicNumber(magicDate: MagicMinute) -> Date {
+    func getTemplate(for date: Date) -> CLKComplicationTemplate {
+        let template = CLKComplicationTemplateUtilitarianLargeFlat()
+        template.textProvider = CLKTimeTextProvider(date: date)
 
+        return template
     }
+
+    func getTimelineEntry(for date: Date) ->
 }
