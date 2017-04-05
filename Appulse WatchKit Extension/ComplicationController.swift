@@ -71,7 +71,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
 
     func getEntry(for date: Date) -> CLKComplicationTimelineEntry {
-        return CLKComplicationTimelineEntry(date: date, complicationTemplate: getTemplate(for: date))
+        // Always show next date starting from the end of previous
+        return CLKComplicationTimelineEntry(date: provider.prev(current: date).addingTimeInterval(60), complicationTemplate: getTemplate(for: date))
     }
 
     func getTemplate(for date: Date) -> CLKComplicationTemplate {
