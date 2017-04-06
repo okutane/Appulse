@@ -27,8 +27,6 @@ class AppulseTests: XCTestCase {
         
         let earlyMorning = formatter.date(from: "2017-04-01 10:10:10")!
         
-        print(earlyMorning)
-        
         let _0000 = provider.prev(current: earlyMorning)
         XCTAssertEqual(formatter.string(from: _0000), "2017-04-01 00:00:00")
         
@@ -47,8 +45,6 @@ class AppulseTests: XCTestCase {
         
         let earlyMorning = formatter.date(from: "2017-04-01 10:10:10")!
         
-        print(earlyMorning)
-        
         let _1111 = provider.next(current: earlyMorning)
         XCTAssertEqual(formatter.string(from: _1111), "2017-04-01 11:11:00")
         
@@ -60,5 +56,59 @@ class AppulseTests: XCTestCase {
         
         let _1111_2 = provider.next(current: _0000)
         XCTAssertEqual(formatter.string(from: _1111_2), "2017-04-02 11:11:00")
+    }
+
+    func testSequentialNumbersPrev() {
+        let provider = SequentialNumbers()
+
+        let earlyMorning = formatter.date(from: "2017-04-01 10:10:10")!
+
+        let _0123 = provider.prev(current: earlyMorning)
+        XCTAssertEqual(formatter.string(from: _0123), "2017-04-01 01:23:00")
+
+        let _1234 = provider.prev(current: _0123)
+        XCTAssertEqual(formatter.string(from: _1234), "2017-03-31 12:34:00")
+
+        let _0123_2 = provider.prev(current: _1234)
+        XCTAssertEqual(formatter.string(from: _0123_2), "2017-03-31 01:23:00")
+    }
+
+    func testSequentialNumbersNext() {
+        let provider = SequentialNumbers()
+
+        let earlyMorning = formatter.date(from: "2017-04-01 10:10:10")!
+
+        let _1234 = provider.next(current: earlyMorning)
+        XCTAssertEqual(formatter.string(from: _1234), "2017-04-01 12:34:00")
+
+        let _0123 = provider.next(current: _1234)
+        XCTAssertEqual(formatter.string(from: _0123), "2017-04-02 01:23:00")
+
+        let _1234_2 = provider.next(current: _0123)
+        XCTAssertEqual(formatter.string(from: _1234_2), "2017-04-02 12:34:00")
+    }
+
+    func testLeetNumbersPrev() {
+        let provider = LeetNumbers()
+
+        let earlyMorning = formatter.date(from: "2017-04-01 10:10:10")!
+
+        let _1337 = provider.prev(current: earlyMorning)
+        XCTAssertEqual(formatter.string(from: _1337), "2017-03-31 13:37:00")
+
+        let _1337_2 = provider.prev(current: _1337)
+        XCTAssertEqual(formatter.string(from: _1337_2), "2017-03-30 13:37:00")
+    }
+
+    func testLeetNumbersNext() {
+        let provider = LeetNumbers()
+
+        let earlyMorning = formatter.date(from: "2017-04-01 10:10:10")!
+
+        let _1337 = provider.next(current: earlyMorning)
+        XCTAssertEqual(formatter.string(from: _1337), "2017-04-01 13:37:00")
+
+        let _1337_2 = provider.next(current: _1337)
+        XCTAssertEqual(formatter.string(from: _1337_2), "2017-04-02 13:37:00")
     }
 }
