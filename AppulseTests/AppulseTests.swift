@@ -111,4 +111,28 @@ class AppulseTests: XCTestCase {
         let _1337_2 = provider.next(current: _1337)
         XCTAssertEqual(formatter.string(from: _1337_2), "2017-04-02 13:37:00")
     }
+
+    func testCompositeNumbersPrev() {
+        let provider = AllMagicNumbers()
+
+        let earlyMorning = formatter.date(from: "2017-04-01 10:10:10")!
+
+        let _0123 = provider.prev(current: earlyMorning)
+        XCTAssertEqual(formatter.string(from: _0123), "2017-04-01 01:23:00")
+
+        let _0000 = provider.prev(current: _0123)
+        XCTAssertEqual(formatter.string(from: _0000), "2017-04-01 00:00:00")
+    }
+
+    func testCompositeNumbersNext() {
+        let provider = AllMagicNumbers()
+
+        let earlyMorning = formatter.date(from: "2017-04-01 10:10:10")!
+
+        let _1111 = provider.next(current: earlyMorning)
+        XCTAssertEqual(formatter.string(from: _1111), "2017-04-01 11:11:00")
+
+        let _1234 = provider.next(current: _1111)
+        XCTAssertEqual(formatter.string(from: _1234), "2017-04-01 12:34:00")
+    }
 }

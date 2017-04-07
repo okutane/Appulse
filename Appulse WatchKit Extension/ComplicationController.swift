@@ -10,7 +10,7 @@ import ClockKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     let formatter : DateFormatter = DateFormatter()
-    let provider: MagicDateProvider = RepeatingNumbers()
+    let provider: MagicDateProvider = AllMagicNumbers()
 
     // MARK: - Timeline Configuration
     
