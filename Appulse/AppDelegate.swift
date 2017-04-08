@@ -16,10 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        print("starting")
+        
         let config: RollbarConfiguration = RollbarConfiguration()
         config.environment = "production"
 
-        Rollbar.initWithAccessToken("YOUR ACCESS TOKEN", configuration: config)
+        Rollbar.initWithAccessToken(ROLLBAR_TOKEN, configuration: config)
+
+        print("started")
+        Rollbar.debug(withMessage: "started")
 
         return true
     }
