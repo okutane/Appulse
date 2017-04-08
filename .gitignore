@@ -1,3 +1,6 @@
+# Private data goes here
+config.h
+
 # AppCode
 .idea
 

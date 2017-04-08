@@ -11,7 +11,15 @@ import WatchKit
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
-        // Perform any final initialization of your application.
+        print("starting")
+        
+        let config: RollbarConfiguration = RollbarConfiguration()
+        config.environment = "watch"
+        
+        Rollbar.initWithAccessToken(ROLLBAR_TOKEN, configuration: config)
+        
+        print("started")
+        Rollbar.debug(withMessage: "started")
     }
 
     func applicationDidBecomeActive() {

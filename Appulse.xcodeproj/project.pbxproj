@@ -27,6 +27,8 @@
 		8D4546631E8FF34C0036F728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4546621E8FF34C0036F728 /* Assets.xcassets */; };
 		8D536F701E98925400FA4FBD /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D536F6E1E98925400FA4FBD /* CrashReporter.framework */; };
 		8D536F711E98925400FA4FBD /* Rollbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D536F6F1E98925400FA4FBD /* Rollbar.framework */; };
+		8D536F751E98A03800FA4FBD /* Rollbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D536F6F1E98925400FA4FBD /* Rollbar.framework */; };
+		8D536F761E98A03C00FA4FBD /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D536F6E1E98925400FA4FBD /* CrashReporter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,7 @@
 		8D536F6E1E98925400FA4FBD /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
 		8D536F6F1E98925400FA4FBD /* Rollbar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Rollbar.framework; sourceTree = "<group>"; };
 		8D536F721E98928C00FA4FBD /* Appulse-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Appulse-Bridging-Header.h"; sourceTree = "<group>"; };
+		8D536F771E98A2D700FA4FBD /* Appulse-WKE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Appulse-WKE-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D536F751E98A03800FA4FBD /* Rollbar.framework in Frameworks */,
+				8D536F761E98A03C00FA4FBD /* CrashReporter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +168,7 @@
 				8D4546571E8FF34C0036F728 /* Appulse WatchKit Extension */,
 				8D45461D1E8FF34C0036F728 /* Products */,
 				8D536F721E98928C00FA4FBD /* Appulse-Bridging-Header.h */,
+				8D536F771E98A2D700FA4FBD /* Appulse-WKE-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -631,12 +637,17 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = A2YW7DW8Q3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Appulse WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.urururu.Appulse.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Appulse-WKE-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.1;
@@ -649,12 +660,17 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = A2YW7DW8Q3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Appulse WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.urururu.Appulse.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Appulse-WKE-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.1;
