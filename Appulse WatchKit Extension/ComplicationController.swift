@@ -42,7 +42,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
         var entryDate = date
         while entries.count < limit {
-            entryDate = provider.prev(current: date)
+            entryDate = provider.prev(current: entryDate)
             entries.append(getEntry(for: entryDate))
         }
 
@@ -54,7 +54,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
         var entryDate = date
         while entries.count < limit {
-            entryDate = provider.next(current: date)
+            entryDate = provider.next(current: entryDate)
             entries.append(getEntry(for: entryDate))
         }
 
