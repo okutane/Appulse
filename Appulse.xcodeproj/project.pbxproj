@@ -25,6 +25,8 @@
 		8D45465F1E8FF34C0036F728 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D45465E1E8FF34C0036F728 /* NotificationController.swift */; };
 		8D4546611E8FF34C0036F728 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4546601E8FF34C0036F728 /* ComplicationController.swift */; };
 		8D4546631E8FF34C0036F728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4546621E8FF34C0036F728 /* Assets.xcassets */; };
+		8D536F701E98925400FA4FBD /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D536F6E1E98925400FA4FBD /* CrashReporter.framework */; };
+		8D536F711E98925400FA4FBD /* Rollbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D536F6F1E98925400FA4FBD /* Rollbar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,9 @@
 		8D4546601E8FF34C0036F728 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		8D4546621E8FF34C0036F728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D4546641E8FF34C0036F728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D536F6E1E98925400FA4FBD /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
+		8D536F6F1E98925400FA4FBD /* Rollbar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Rollbar.framework; sourceTree = "<group>"; };
+		8D536F721E98928C00FA4FBD /* Appulse-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Appulse-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D536F701E98925400FA4FBD /* CrashReporter.framework in Frameworks */,
+				8D536F711E98925400FA4FBD /* Rollbar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,12 +154,15 @@
 		8D4546131E8FF34C0036F728 = {
 			isa = PBXGroup;
 			children = (
+				8D536F6E1E98925400FA4FBD /* CrashReporter.framework */,
+				8D536F6F1E98925400FA4FBD /* Rollbar.framework */,
 				8D45461E1E8FF34C0036F728 /* Appulse */,
 				8D4546331E8FF34C0036F728 /* AppulseTests */,
 				8D45463E1E8FF34C0036F728 /* AppulseUITests */,
 				8D4546481E8FF34C0036F728 /* Appulse WatchKit App */,
 				8D4546571E8FF34C0036F728 /* Appulse WatchKit Extension */,
 				8D45461D1E8FF34C0036F728 /* Products */,
+				8D536F721E98928C00FA4FBD /* Appulse-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -337,6 +347,7 @@
 					8D45461B1E8FF34C0036F728 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = A2YW7DW8Q3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					8D45462F1E8FF34C0036F728 = {
@@ -690,12 +701,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = A2YW7DW8Q3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Appulse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.urururu.Appulse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Appulse-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -704,12 +722,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = A2YW7DW8Q3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Appulse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.urururu.Appulse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Appulse-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
